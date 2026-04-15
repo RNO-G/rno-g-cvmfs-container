@@ -1,8 +1,10 @@
-An example of a Podman/Docker container that mounts RNO-G CVMFS
+An example of a Podman/Docker container that mounts RNO-G CVMFS. 
 
 If $RNO_G_WORKSPACE is defined, that directory (which can't contain spaces) is
-bind-mounted to /rno-g.  You may want to invoke docker/podman yourself as
-needed if you need different bind mounts. Hopefully you know what you're doing!
+bind-mounted to /rno-g.  Similarly, if $RNO_G_DATA exists it gets mounted to /data/
+
+You may want to invoke docker/podman yourself as needed if you need different
+bind mounts. Hopefully you know what you're doing!
 
 # Usage with podman
 

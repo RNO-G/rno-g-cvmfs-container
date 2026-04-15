@@ -23,7 +23,8 @@ set -a
 . /cvmfs/$TARGET/software/trunk/setup.sh
 set +a
 
-# sync appuser UID/GID with the host if provided
+# This is trying to match uid/gid in a way compatible with both docker or podman
+# hopefully it doens't blow up! my user account is 1000 so...
 if [ -n "$HOST_UID" ] && [ "$HOST_UID" != "$(id -u rno-g)" ]; then
     echo "Updating rno-g UID to $HOST_UID to match host..."
     usermod -u "$HOST_UID" rno-g

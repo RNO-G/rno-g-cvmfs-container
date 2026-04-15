@@ -18,29 +18,29 @@ docker: setup-mount.sh Containerfile
 
 podman-run:
 	podman run -it --rm \
-  --device /dev/fuse \
+	--device /dev/fuse \
 	--user root\
-  --cap-add SYS_ADMIN \
-  --security-opt label=disable \
+	--cap-add SYS_ADMIN \
+	--security-opt label=disable \
 	--hostname rno-g-cvmfs-el9 \
 	-e HOST_UID=$$(id -u) \
 	-e HOST_GID=$$(id -g) \
 	$(WORKSPACE_MOUNT) \
 	$(DATA_MOUNT) \
-  rno-g-cvmfs
+	rno-g-cvmfs
 
 docker-run:
 	docker run -it --rm \
-  --device /dev/fuse \
+	--device /dev/fuse \
 	--user root\
-  --cap-add SYS_ADMIN \
-  --security-opt label=disable \
+	--cap-add SYS_ADMIN \
+	--security-opt label=disable \
 	--hostname rno-g-cvmfs-el9 \
 	-e HOST_UID=$${SUDO_UID:-$$(id -u)} \
 	-e HOST_GID=$${SUDO_GID:-$$(id -g)} \
 	$(WORKSPACE_MOUNT) \
 	$(DATA_MOUNT) \
-  rno-g-cvmfs
+	rno-g-cvmfs
 
 
 run-podman: podman-run
